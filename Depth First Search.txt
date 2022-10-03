@@ -1,0 +1,24 @@
+vector<int> dfsofGraph(int n,vector<int> &adj[])
+{
+    vector<int> storedfs;
+    vector<int> vis(n+1,0);
+    for(int i=1;i<=n;i++)
+    {
+        if(!vis[i])
+        {
+            dfs(i,adj[],storedfs,vis);
+        }
+    }
+    return storedfs;
+}
+void vector<int> dfs(int node,vector<int> adj[],vector<int> storedfs,vector<int> vis)
+{
+    storedfs.push_back(node);
+    for(auto it:adj[node])
+    {
+        if(!vis[node])
+        {
+            dfs(it,adj[],storedfs,vis)
+        }
+    }
+}
